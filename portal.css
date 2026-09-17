@@ -60,3 +60,24 @@ body.portal{background:#ecece7}.portal-top{height:72px;background:#fff;border-bo
 
 .portal-footer{font-size:13px;line-height:1.55}
 @media(max-width:760px){.portal-footer{font-size:13px}.portal-footer .container{gap:8px}}
+
+/* Compact dashboard navigation — keep items grouped instead of stretching */
+.dashboard-page .dash-menu{
+  display:flex;
+  flex:0 0 auto;
+  flex-direction:column;
+  align-items:stretch;
+  gap:7px;
+}
+.dashboard-page .dash-menu button{
+  flex:0 0 48px;
+  height:48px;
+  min-height:48px;
+  padding:0 14px;
+}
+.dashboard-page .dash-menu button:focus{outline:none}
+.dashboard-page .dash-menu button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media(max-width:760px){
+  .dashboard-page .dash-menu{flex-direction:row;align-items:center;gap:7px}
+  .dashboard-page .dash-menu button{flex:0 0 auto;height:46px;min-height:46px;padding:0 14px}
+}
