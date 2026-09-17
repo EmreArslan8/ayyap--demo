@@ -15,3 +15,48 @@ body.portal{background:#ecece7}.portal-top{height:72px;background:#fff;border-bo
 
 /* Mobile legibility */
 @media(max-width:760px){.portal-hero{padding:45px 0 64px}.portal-hero h1{font-size:46px}.portal-hero p{font-size:14px;line-height:1.7}.portal-hero small,.module-title small,.demo-badge{font-size:10px}.module-title{padding:19px}.module-title h2{font-size:24px}.portal-actions a{min-height:44px;font-size:11px}.choice-block>label{font-size:11px}.choice-row button{font-size:12px;min-height:44px}.measure-inputs label{font-size:11px}.measure-inputs input,.track-form input,.chat-form input{font-size:16px;min-height:50px}.config-summary small,.product-details small,.data-grid small{font-size:9px}.config-summary b,.data-grid b{font-size:12px}.track-timeline div{font-size:11px;min-height:38px}.dash-menu button{font-size:11px;min-height:44px}.dash-content>p,.assistant-info p{font-size:12px}.dash-item b{font-size:12px}.dash-item small,.dash-item em{font-size:10px}.product-id p,.verified-line,.product-warning,.document-links a{font-size:11px}.message{font-size:13px}.quick-prompts button{font-size:10px;min-height:38px}.chat-disclaimer{font-size:9px;line-height:1.5}.portal-footer{font-size:10px}}
+
+/* Modern application dashboards */
+.dashboard-page{background:#f2f3ef}.dashboard-page .portal-top{position:relative;height:68px}.dashboard-page .portal-shell{margin-top:0;padding-top:34px;max-width:1440px}.dashboard-page-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.dashboard-page-head small{font-size:11px;letter-spacing:.14em;color:var(--orange);font-weight:800}.dashboard-page-head h1{font:700 40px "Barlow Condensed";text-transform:uppercase;margin:3px 0 0;line-height:1}.dashboard-page-head p{font-size:13px;color:var(--muted);margin:5px 0 0}.dashboard-page .dashboard{grid-template-columns:250px 1fr;min-height:650px;border-radius:14px;overflow:hidden;box-shadow:0 16px 45px rgba(20,23,24,.08)}.dashboard-page .dash-side{padding:28px 18px}.dashboard-page .dash-user b{font-size:14px}.dashboard-page .dash-user small{font-size:11px}.dashboard-page .dash-menu{gap:7px}.dashboard-page .dash-menu button{font-size:12px;min-height:45px;border-radius:8px;padding:12px 13px}.dashboard-page .dash-menu button.active{background:var(--yellow);color:var(--ink)}.dashboard-page .dash-content{padding:38px}.dashboard-page .dash-content h2{font-size:34px}.dashboard-page .dash-content>div>p{font-size:13px;color:var(--muted)}.dashboard-page .stat-grid{gap:14px}.dashboard-page .stat-grid article{border-radius:10px;padding:20px;background:#fafaf7}.dashboard-page .stat-grid small{font-size:10px}.dashboard-page .stat-grid strong{font-size:36px}.dashboard-page .dash-panel{border-radius:10px}.dashboard-page .dash-panel h3{font-size:24px}.dashboard-page .dash-item b{font-size:13px}.dashboard-page .dash-item small{font-size:11px}.dashboard-page .dash-item em{font-size:9px}.dashboard-page .empty-note b{font-size:13px}.dashboard-page .empty-note small{font-size:11px}
+@media(max-width:760px){.dashboard-page .portal-shell{padding-top:22px}.dashboard-page-head{align-items:flex-start;gap:14px;flex-direction:column}.dashboard-page-head h1{font-size:34px}.dashboard-page .dashboard{grid-template-columns:1fr;border-radius:10px}.dashboard-page .dash-side{padding:12px}.dashboard-page .dash-menu{display:flex;overflow-x:auto;gap:7px;padding-bottom:3px}.dashboard-page .dash-menu button{min-width:max-content}.dashboard-page .dash-content{padding:24px 18px}.dashboard-page .dash-content h2{font-size:30px}.dashboard-page .stat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.dashboard-page .stat-grid{grid-template-columns:1fr}.dashboard-page-head .button{width:100%}}
+
+.dashboard-page .portal-page{min-height:100vh}.dashboard-page .portal-shell{width:100%;max-width:none;margin:0;padding:0}.dashboard-page .dashboard{min-height:100vh;border:0;border-radius:0;box-shadow:none}.dashboard-page .dash-side{position:sticky;top:0;height:100vh;overflow-y:auto}.dashboard-page .dash-content{min-width:0;overflow-y:auto}.dashboard-page .dash-content:before{content:"AY YAPI DİJİTAL PLATFORM";display:block;font-size:10px;letter-spacing:.16em;color:var(--orange);font-weight:800;margin-bottom:24px}
+@media(max-width:760px){.dashboard-page .dashboard{min-height:100vh}.dashboard-page .dash-side{position:sticky;top:0;height:auto;z-index:20}.dashboard-page .dash-content:before{margin-bottom:16px}.dashboard-page .dash-content{min-height:calc(100vh - 80px)}}
+
+/* Readable application typography */
+.dashboard-page .dashboard{grid-template-columns:280px minmax(0,1fr);background:#fff}
+.dashboard-page .dash-side{display:flex;flex-direction:column;padding:28px 20px;background:#171b1c}
+.dashboard-page .dash-user b{font-size:16px;margin-bottom:4px}
+.dashboard-page .dash-user small{font-size:12px;line-height:1.5}
+.dashboard-page .dash-menu{flex:1}
+.dashboard-page .dash-menu button{width:100%;font-size:14px;line-height:1.35;min-height:48px;cursor:pointer}
+.dashboard-page .dash-menu svg{width:19px;height:19px;flex:none}
+.dashboard-page .dash-content{padding:48px clamp(28px,4vw,68px);background:#f6f7f4}
+.dashboard-page .dash-content:before{font-size:12px;margin-bottom:30px}
+.dashboard-page .dash-content h2{font-size:42px;letter-spacing:-.02em}
+.dashboard-page .dash-content>div>p{font-size:15px;line-height:1.65;max-width:760px}
+.dashboard-page .stat-grid{gap:16px;margin:30px 0}
+.dashboard-page .stat-grid article{padding:24px;background:#fff;border-color:#e0e2dc}
+.dashboard-page .stat-grid small{font-size:11px;letter-spacing:.08em}
+.dashboard-page .stat-grid strong{font-size:42px;margin-top:7px}
+.dashboard-page .dash-panel,.dashboard-page .empty-note{background:#fff;border-color:#e0e2dc;padding:24px}
+.dashboard-page .dash-panel h3{font-size:26px}
+.dashboard-page .dash-item{padding:18px 0;gap:16px}
+.dashboard-page .dash-item b,.dashboard-page .empty-note b{font-size:15px}
+.dashboard-page .dash-item small,.dashboard-page .empty-note small{font-size:13px;line-height:1.55;margin-top:3px}
+.dashboard-page .dash-item em{font-size:11px;font-weight:800;padding:8px 10px}
+.module-title small,.demo-badge{font-size:11px}
+.config-summary small,.config-price small,.choice-block>label,.measure-inputs label{font-size:12px}
+.config-summary b,.choice-row button{font-size:13px}
+.compare-table>div,.compare-cta p{font-size:13px;line-height:1.55}
+.track-summary span,.track-timeline div{font-size:12px}
+.product-id p,.verified-line,.data-grid small,.document-links a,.product-warning{font-size:12px;line-height:1.55}
+.data-grid b{font-size:14px}
+.assistant-info p,.assistant-rules span,.message{font-size:13px}
+.quick-prompts button,.chat-disclaimer{font-size:11px;line-height:1.5}
+@media(max-width:900px){.dashboard-page .dashboard{grid-template-columns:230px minmax(0,1fr)}.dashboard-page .dash-content{padding:36px 28px}.dashboard-page .stat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.dashboard-page .dashboard{display:block}.dashboard-page .dash-side{height:auto;padding:12px 14px}.dashboard-page .dash-menu{display:flex;overflow-x:auto;margin:0}.dashboard-page .dash-menu button{width:auto;min-width:max-content;font-size:13px}.dashboard-page .dash-content{padding:28px 18px}.dashboard-page .dash-content h2{font-size:34px}.dashboard-page .dash-content>div>p{font-size:14px}.dashboard-page .dash-content:before{font-size:10px}.dashboard-page .dash-item{grid-template-columns:auto 1fr}.dashboard-page .dash-item>a,.dashboard-page .dash-item>em{grid-column:2}.dashboard-page .stat-grid article{padding:20px}}
+
+.portal-footer{font-size:13px;line-height:1.55}
+@media(max-width:760px){.portal-footer{font-size:13px}.portal-footer .container{gap:8px}}

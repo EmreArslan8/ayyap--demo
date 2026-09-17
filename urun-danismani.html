@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ürün Danışmanı | Ay Yapı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="portal.css"><link rel="stylesheet" href="pages.css">
+</head>
+<body class="portal">
+  <header class="portal-top"><div class="container portal-nav"><a class="brand brand-image" href="index.html"><img src="assets/real-logo.png" alt="Ay Yapı"></a><div class="portal-actions"><a href="index.html"><i data-lucide="home"></i>Ana Sayfa</a><a href="fiyat-hesapla.html"><i data-lucide="calculator"></i>Fiyat Hesapla</a></div></div></header>
+  <main>
+    <section class="inner-hero"><div class="container"><div class="breadcrumbs">Ana Sayfa / Ürün Danışmanı</div><h1>Neye İhtiyacınız Var?</h1><p>Kullanım alanınızı, önceliğinizi ve ölçünüzü seçin; size uygun olabilecek sistemi görün.</p></div></section>
+    <section class="section selector-section" id="selector"><div class="container selector-shell">
+      <div class="selector-info"><div class="eyebrow light"><span></span> AKILLI ÜRÜN DANIŞMANI</div><h2>Doğru sistemi birlikte bulalım.</h2><p>Sonuç bir ön yönlendirmedir; kesin ürün seçimi teknik keşifle netleşir.</p><div class="step-rail"><span class="active">01 <small>Kullanım alanı</small></span><span>02 <small>Öncelik</small></span><span>03 <small>Ölçü</small></span><span>04 <small>Tercihler</small></span></div></div>
+      <div class="selector-panel"><div class="selector-progress"><span id="selectorStepLabel">ADIM 1 / 4</span><div><i id="selectorProgress"></i></div></div>
+        <form id="selectorForm">
+          <fieldset class="selector-step active" data-step="1"><legend>Nerede kullanılacak?</legend><p>Uygulama alanını seçin.</p><div class="option-grid two"><label><input type="radio" name="place" value="Mağaza"><span>Mağaza</span></label><label><input type="radio" name="place" value="Dükkan"><span>Dükkan</span></label><label><input type="radio" name="place" value="Fabrika"><span>Fabrika</span></label><label><input type="radio" name="place" value="Depo"><span>Depo</span></label><label><input type="radio" name="place" value="Garaj"><span>Garaj</span></label><label><input type="radio" name="place" value="Apartman"><span>Apartman</span></label><label><input type="radio" name="place" value="Otopark"><span>Otopark</span></label><label><input type="radio" name="place" value="Diğer"><span>Diğer</span></label></div></fieldset>
+          <fieldset class="selector-step" data-step="2"><legend>Önceliğiniz nedir?</legend><p>En önemli kriteri seçin.</p><div class="option-grid two"><label><input type="radio" name="priority" value="Güvenlik"><span>Güvenlik</span></label><label><input type="radio" name="priority" value="Görünürlük"><span>Görünürlük</span></label><label><input type="radio" name="priority" value="Isı yalıtımı"><span>Isı yalıtımı</span></label><label><input type="radio" name="priority" value="Estetik"><span>Estetik</span></label><label><input type="radio" name="priority" value="Hız"><span>Hız</span></label><label><input type="radio" name="priority" value="Uygun maliyet"><span>Uygun maliyet</span></label></div></fieldset>
+          <fieldset class="selector-step" data-step="3"><legend>Yaklaşık ölçüler</legend><p>Santimetre cinsinden yaklaşık değerler yeterlidir.</p><div class="input-pair"><label>Genişlik (cm)<input name="width" type="number" min="100" value="300"></label><span>×</span><label>Yükseklik (cm)<input name="height" type="number" min="100" value="250"></label></div></fieldset>
+          <fieldset class="selector-step" data-step="4"><legend>Sistem tercihleri</legend><p>Ek ihtiyaçlarınızı belirtin.</p><div class="toggle-list"><label><span><b>Otomatik sistem</b><small>Motor ve uzaktan kumanda</small></span><input type="checkbox" name="automatic" checked><i></i></label><label><span><b>UPS güç kaynağı</b><small>Elektrik kesintisine karşı destek</small></span><input type="checkbox" name="ups"><i></i></label></div><label class="full-input">Şehir / İlçe<input name="location" value="Ankara / "></label><label class="upload selector-upload"><input type="file" accept="image/*"><i data-lucide="camera"></i><span><b>Fotoğraf ekleyin (isteğe bağlı)</b><small>Demo önizleme alanı</small></span></label></fieldset>
+          <div class="selector-result" id="selectorResult"><div class="result-icon"><i data-lucide="sparkles"></i></div><small>ÖNERİLEN SİSTEM</small><h3 id="recommendedProduct">Otomatik Çelik Kepenk</h3><p id="recommendedReason"></p><div class="result-meta"><span><small>FİYAT SEVİYESİ</small><b>Orta — Üst</b></span><span><small>ALTERNATİF</small><b id="alternativeProduct">Alüminyum Kepenk</b></span></div><div class="result-actions"><a class="button primary" href="fiyat-hesapla.html">Fiyat Hesapla</a><a class="button outline" href="iletisim.html">Teklif Al</a></div></div>
+          <div class="selector-nav"><button type="button" class="button text-button" id="selectorBack" disabled><i data-lucide="arrow-left"></i>Geri</button><button type="button" class="button primary" id="selectorNext">Devam Et <i data-lucide="arrow-right"></i></button></div>
+        </form>
+      </div>
+    </div></section>
+  </main>
+  <footer class="portal-footer"><div class="container"><span>Ay Yapı Ürün Danışmanı</span><span>Sonuçlar ön yönlendirme niteliğindedir.</span></div></footer>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="app.js"></script>
+</body></html>

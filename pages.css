@@ -2,3 +2,15 @@
 @media(max-width:760px){.category-grid,.detail-sections,.guide-categories,.project-page-grid{grid-template-columns:1fr}.product-detail-hero,.content-layout,.contact-layout{grid-template-columns:1fr}.product-detail-hero img{min-height:320px}.product-detail-copy{padding:30px 20px}.side-nav{position:static}.contact-form form{grid-template-columns:1fr}.contact-form .wide{grid-column:auto}}
 
 @media(max-width:760px){.inner-hero{padding:50px 0}.inner-hero h1{font-size:48px}.inner-hero p{font-size:14px;line-height:1.7}.breadcrumbs{font-size:10px}.page-content{padding:55px 0}.category-card img{height:220px}.category-card small,.project-page-grid small{font-size:10px}.category-card h2,.project-page-grid h2{font-size:27px}.category-card p,.project-page-grid p,.article-content p,.article-content li,.detail-sections p,.detail-sections li{font-size:13px;line-height:1.7}.category-card a{font-size:11px;min-height:40px}.product-detail-copy h1{font-size:45px}.product-detail-copy>p{font-size:14px;line-height:1.7}.product-points span{font-size:11px}.side-nav b{font-size:22px}.side-nav a{font-size:11px;min-height:42px}.article-content h2{font-size:31px}.contact-card a,.contact-card p{font-size:13px}.contact-form{padding:25px 20px}.contact-form label{font-size:11px}.contact-form input,.contact-form select,.contact-form textarea{font-size:16px;min-height:49px}.guide-cat a{font-size:12px;min-height:42px}.guide-cat h2{font-size:26px}}
+
+.technical-card .tech-card-art{height:230px;background:#232829;color:var(--yellow);display:grid;place-items:center;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px}.tech-card-art svg{width:64px;height:64px}.product-bottom-cta{margin-top:28px;background:var(--ink);color:#fff;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:25px}.product-bottom-cta small{font-size:9px;letter-spacing:.13em;color:var(--yellow)}.product-bottom-cta h2{font:700 30px "Barlow Condensed";text-transform:uppercase;margin:4px 0}.product-bottom-cta>div:last-child{display:flex;gap:8px}.detail-sections article a{margin-top:14px}
+
+/* Readable inner-page typography */
+.breadcrumbs,.category-card small,.product-bottom-cta small{font-size:11px}
+.category-card p,.detail-sections p,.detail-sections li,.project-page-grid p{font-size:13px;line-height:1.65}
+.category-card a,.side-nav a,.guide-cat a{font-size:12px}
+.product-detail-copy p,.article-content p,.article-content li{font-size:14px;line-height:1.75}
+.product-points span,.contact-form label{font-size:12px}
+.contact-card a,.contact-card p{font-size:14px;line-height:1.65}
+.contact-form input,.contact-form select,.contact-form textarea{font-size:15px}
+@media(max-width:760px){.technical-card .tech-card-art{height:200px}.product-bottom-cta{align-items:stretch;flex-direction:column}.product-bottom-cta>div:last-child{display:grid;grid-template-columns:1fr 1fr}.product-bottom-cta .button{width:100%}}

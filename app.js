@@ -47,7 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let product = 'Otomatik Çelik Kepenk', alt = 'Alüminyum Kepenk';
     if (priority === 'Görünürlük') { product = 'Şeffaf Kepenk'; alt = 'Delikli Çelik Kepenk'; }
     if (priority === 'Isı yalıtımı') { product = 'Yalıtımlı Alüminyum Kepenk'; alt = 'Seksiyonel Kapı'; }
+    if (priority === 'Estetik') { product = 'Alüminyum Kepenk'; alt = 'Şeffaf Kepenk'; }
+    if (priority === 'Hız') { product = 'Hızlı Otomatik Kapı'; alt = 'Fotoselli Kapı'; }
     if (place === 'Garaj' || place === 'Apartman') { product = 'Otomatik Garaj Kapısı'; alt = 'Alüminyum Kepenk'; }
+    if (place === 'Otopark') { product = 'Kollu Bariyer Sistemi'; alt = 'Yana Kayar Kapı Motoru'; }
     document.querySelector('#recommendedProduct').textContent = product;
     document.querySelector('#alternativeProduct').textContent = alt;
     document.querySelector('#recommendedReason').textContent = `${place} kullanımında ${priority.toLocaleLowerCase('tr-TR')} önceliğinize ve belirttiğiniz ölçülere uygun başlangıç seçeneğidir. Kesin öneri keşif sonrası netleşir.`;
@@ -57,24 +60,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   back?.addEventListener('click', () => { if (selectorStep > 1) { selectorStep--; updateSelector(); } });
 
+  let pricing = null;
   const calc = () => {
-    const typeRates = { steel: 3450, transparent: 5200, aluminum: 3950, garage: 4600 };
+    if (!pricing || !document.querySelector('#priceForm')) return;
     const w = Math.max(100, Number(document.querySelector('#calcWidth').value || 100)) / 100;
     const h = Math.max(100, Number(document.querySelector('#calcHeight').value || 100)) / 100;
     const type = document.querySelector('#calcType').value;
+    const profile = document.querySelector('#calcProfile').value;
     const motor = document.querySelector('#calcMotor').value;
-    let total = w * h * typeRates[type];
-    total += motor === 'heavy' ? 12500 : motor === 'standard' ? 7500 : 0;
-    if (document.querySelector('#calcRemote').checked) total += 1800;
-    if (document.querySelector('#calcUps').checked) total += 6800;
-    if (document.querySelector('#calcInstall').checked) total += 4500;
-    const low = Math.round(total / 250) * 250;
-    const high = Math.round((total * 1.17) / 250) * 250;
+    const receiver = document.querySelector('#calcReceiver').value;
+    let total = w * h * pricing.typeRates[type] + pricing.profile[profile] + pricing.motor[motor] + pricing.receiver[receiver];
+    ['Remote','Ups','Install','Photocell','Safety'].forEach(key => {
+      const input = document.querySelector(`#calc${key}`);
+      if (input?.checked) total += pricing.extras[key.toLowerCase()];
+    });
+    const low = Math.round(total / pricing.rounding) * pricing.rounding;
+    const high = Math.round((total * pricing.rangeMultiplier) / pricing.rounding) * pricing.rounding;
     const format = n => new Intl.NumberFormat('tr-TR', { style:'currency', currency:'TRY', maximumFractionDigits:0 }).format(n);
     document.querySelector('#priceOutput').textContent = `${format(low)} — ${format(high)}`;
+    document.querySelector('#calcSummary').innerHTML = `<li>${document.querySelector('#calcType').selectedOptions[0].text}</li><li>${Math.round(w*100)} × ${Math.round(h*100)} cm</li><li>${document.querySelector('#calcMotor').selectedOptions[0].text}</li><li>${document.querySelector('#calcCity').value || 'İl belirtilmedi'} / ${document.querySelector('#calcDistrict').value || 'İlçe belirtilmedi'}</li>`;
   };
+  fetch('data/pricing.json').then(r => r.json()).then(data => { pricing = data; calc(); }).catch(() => {
+    const output = document.querySelector('#priceOutput');
+    if (output) output.textContent = 'Fiyat verisi yüklenemedi';
+  });
   document.querySelectorAll('#priceForm input, #priceForm select').forEach(el => el.addEventListener('input', calc));
-  calc();
 
   const diagnoses = {
     power: ['Enerji veya kontrol bağlantısı sorunu olabilir.','Elektrik beslemesi, sigorta, kumanda ya da kontrol kartı kaynaklı bir kesinti ihtimali bulunur.',['Binada elektrik olup olmadığını kontrol edin.','Kumandanın pilini kontrol edin.']],
@@ -82,7 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
     remote: ['Kumanda pili veya alıcı eşleşmesi kontrol edilmeli.','Pilin bitmesi, kumandanın eşleşmesini kaybetmesi veya alıcı kartı sorunu olası nedenlerdir.',['Varsa yedek kumandayı deneyin.','Yeni ve doğru tip pil ile test edin.']],
     noise: ['Ray, lamel veya motor kaynaklı sürtünme olabilir.','Normal dışı ses mekanik gevşeme, ray sürtünmesi veya motor zorlanması belirtisi olabilir.',['Sesin geldiği bölgeyi uzaktan belirleyin.','Kullanımı durdurup servis kaydı açın.']],
     open: ['Kontrol ya da mekanik engel ihtimali var.','Enerji olmasına rağmen açılmıyorsa motor, limit, kilit veya lamel sıkışması değerlendirilmelidir.',['Fiziksel kilit varsa açık konumda olduğunu doğrulayın.','Ray çevresinde görünür engel olup olmadığına bakın.']],
-    electric: ['UPS veya manuel açma sistemi gerekebilir.','Elektrik kesintisinde kullanım yöntemi motor ve aksesuar tipine göre değişir.',['Varsa ürün kullanım talimatını kontrol edin.','UPS göstergesini yalnızca dışarıdan gözlemleyin.']]
+    electric: ['UPS veya manuel açma sistemi gerekebilir.','Elektrik kesintisinde kullanım yöntemi motor ve aksesuar tipine göre değişir.',['Varsa ürün kullanım talimatını kontrol edin.','UPS göstergesini yalnızca dışarıdan gözlemleyin.']],
+    motor: ['Motor ile hareket aktarımı arasında sorun olabilir.','Motor sesi duyulmasına rağmen hareket yoksa bağlantı, mil veya mekanik aktarım değerlendirilmelidir.',['Kepengi çalıştırmayı durdurun.','Görünür bir engel olup olmadığına uzaktan bakın.']],
+    close: ['Fotosel, limit veya ray engeli kontrol edilmeli.','Kapanmama durumu emniyet sensörü, limit ayarı veya raydaki bir engelden kaynaklanabilir.',['Fotosel önünde engel olmadığını kontrol edin.','Ray çevresini uzaktan gözlemleyin.']],
+    motorFault: ['Motor korumaya geçmiş veya arızalanmış olabilir.','Aşırı kullanım, kapasite yetersizliği ya da elektriksel sorun motoru durdurabilir.',['Sistemi dinlendirin ve tekrar tekrar denemeyin.','Yanık kokusu varsa enerjiyi güvenli şekilde kesin.']],
+    receiver: ['Alıcı kartı enerji veya eşleşme sorunu olabilir.','Kart beslemesi, anten, kumanda eşleşmesi veya kart arızası değerlendirilmelidir.',['Varsa duvar butonunu deneyin.','Kart kutusunu açmayın.']],
+    remoteFault: ['Kumanda pili veya eşleşmesi kontrol edilmeli.','Tek kumandada sorun varsa pil/cihaz; tüm kumandalarda varsa alıcı sistemi değerlendirilir.',['Yedek kumandayı deneyin.','Uygun tip yeni pil kullanın.']],
+    other: ['Belirti teknik inceleme gerektiriyor.','Tanımlanamayan ses, hareket veya kontrol sorunlarında sistemi zorlamadan servis kaydı oluşturun.',['Kısa bir video veya fotoğraf hazırlayın.','Ürün ve motor bilgilerini not edin.']]
   };
   document.querySelectorAll('#symptomGrid button').forEach(button => button.addEventListener('click', () => {
     document.querySelectorAll('#symptomGrid button').forEach(b => b.classList.remove('active'));

@@ -1,0 +1,12 @@
+{
+  "currency": "TRY",
+  "typeRates": { "steel": 3450, "transparent": 5200, "aluminum": 3950, "garage": 4600 },
+  "profile": { "standard": 0, "insulated": 5400, "vision": 3200 },
+  "motor": { "manual": 0, "standard": 7500, "heavy": 12500 },
+  "receiver": { "none": 0, "standard": 1600, "smart": 3900 },
+  "extras": { "remote": 1800, "ups": 6800, "install": 4500, "photocell": 2400, "safety": 3100 },
+  "rangeMultiplier": 1.17,
+  "rounding": 250,
+  "updatedAt": "2026-09-17",
+  "notice": "Demo parametreleridir; ticari teklif değildir."
+}

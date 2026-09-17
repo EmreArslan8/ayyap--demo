@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kepenk Doktoru | Ay Yapı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="portal.css"><link rel="stylesheet" href="pages.css">
+</head>
+<body class="portal">
+  <header class="portal-top"><div class="container portal-nav"><a class="brand brand-image" href="index.html"><img src="assets/real-logo.png" alt="Ay Yapı"></a><div class="portal-actions"><a href="index.html"><i data-lucide="home"></i>Ana Sayfa</a><a href="teknik-servis.html"><i data-lucide="wrench"></i>Teknik Servis</a></div></div></header>
+  <main><section class="inner-hero"><div class="container"><div class="breadcrumbs">Ana Sayfa / Kepenk Doktoru</div><h1>Kepenk Doktoru</h1><p>Belirtiyi seçin; olası nedenleri, güvenli kontrolleri ve müdahale etmemeniz gereken noktaları görün.</p></div></section>
+    <section class="section doctor"><div class="container doctor-grid"><div class="doctor-copy"><div class="doctor-badge"><i data-lucide="stethoscope"></i></div><div class="eyebrow"><span></span> GÜVENLİ ÖN DEĞERLENDİRME</div><h2>Sorunu tarif edin.</h2><p>Bu araç kesin arıza teşhisi koymaz; güvenli bir ilk yönlendirme sağlar.</p><div class="safety"><i data-lucide="triangle-alert"></i><span><b>Güvenlik uyarısı</b><small>Motor kutusu, yay sistemi ve elektrik bağlantılarını açmayın.</small></span></div></div>
+      <div class="doctor-panel"><h3>Kepenginizde ne sorun var?</h3><div class="symptom-grid" id="symptomGrid"><button data-issue="power">Hiç çalışmıyor</button><button data-issue="motor">Motor çalışıyor, hareket etmiyor</button><button data-issue="remote">Kumanda çalışmıyor</button><button data-issue="open">Açılmıyor</button><button data-issue="close">Kapanmıyor</button><button data-issue="stuck">Yarıda kalıyor</button><button data-issue="electric">Elektrik kesildi</button><button data-issue="noise">Ses yapıyor</button><button data-issue="motorFault">Motor arızası</button><button data-issue="receiver">Alıcı kartı sorunu</button><button data-issue="remoteFault">Kumanda sorunu</button><button data-issue="other">Diğer</button></div>
+        <div class="diagnosis" id="diagnosis"><div class="diagnosis-top"><span><i data-lucide="search-check"></i> ÖN DEĞERLENDİRME</span><button id="closeDiagnosis" aria-label="Sonucu kapat"><i data-lucide="x"></i></button></div><h4 id="diagnosisTitle"></h4><p id="diagnosisText"></p><div class="diagnosis-cols"><div><b><i data-lucide="circle-check"></i> Güvenle kontrol edin</b><ul id="safeChecks"></ul></div><div><b><i data-lucide="ban"></i> Müdahale etmeyin</b><ul><li>Motor kutusunu açmayın.</li><li>Kepengi zorlayarak kaldırmayın.</li></ul></div></div><a class="button primary" href="teknik-servis.html">Servis Talebi Oluştur</a></div>
+      </div></div></section>
+  </main>
+  <footer class="portal-footer"><div class="container"><span>Ay Yapı Kepenk Doktoru</span><span>Acil durumda: 0312 271 75 76</span></div></footer>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="app.js"></script>
+</body></html>
